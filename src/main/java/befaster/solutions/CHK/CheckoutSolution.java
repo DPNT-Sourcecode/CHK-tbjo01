@@ -22,6 +22,9 @@ public class CheckoutSolution {
         }
 
         //verify invalid inputs
+        for(int i = 0; i < products.length; i++){
+            listOfProducts.add(products[i]);
+        }
         for(String cstProduct : customerProducts){
             if(!listOfProducts.contains(cstProduct)) return -1;
         }
@@ -145,6 +148,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
