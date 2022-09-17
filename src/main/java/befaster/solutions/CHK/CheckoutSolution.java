@@ -48,7 +48,7 @@ public class CheckoutSolution {
             if(products[i].equals("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
             }else if(products[i].equals("B")){
-                discount = items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
+                discount = items.get(i)/2*15;
             }else if(products[i].equals("H")){
                 discount = items.get(i)/10*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*5;
             }else if(products[i].equals("V")){
@@ -60,4 +60,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
