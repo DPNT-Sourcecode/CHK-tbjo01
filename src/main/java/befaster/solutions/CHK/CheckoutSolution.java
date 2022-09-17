@@ -12,6 +12,7 @@ public class CheckoutSolution {
         List<Integer> items = new ArrayList<Integer>();
         Integer[] prices = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
         String[] products = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        if(skus.length() == 0) return - 1;
         for(int i = 0; i < skus.length() - 2; i++){
             char product = skus.charAt(i);
             if(!customerProducts.contains(Character.toString(product))){
@@ -144,6 +145,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
