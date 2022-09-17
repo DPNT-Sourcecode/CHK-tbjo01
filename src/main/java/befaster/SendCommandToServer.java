@@ -71,4 +71,9 @@ public class SendCommandToServer {
                 .start();
     }
 
+    public Integer sum(Integer x, Integer y){
+        return y+x;
+    }
+
 }
+
