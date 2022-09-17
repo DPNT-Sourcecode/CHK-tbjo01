@@ -43,7 +43,7 @@ public class CheckoutSolution {
             index++;
         }
 
-        //specific free rules
+        //specific free rules - this is to specify the new quantity of items that the customer is buying
         if(customerProducts.contains("B") && customerProducts.contains("E")){
             int qtdBItems = 0, qtdEItems = 0;
             for(int c = 0; c < skus.length(); c++) {
@@ -75,17 +75,26 @@ public class CheckoutSolution {
                 }
             }
             if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
-        }else if(customerProducts.contains("R") && customerProducts.contains("Q")){
+        }else if(customerProducts.contains("R") && customerProducts.contains("Q")) {
             int qtdRItems = 0, qtdQItems = 0;
-            for(int c = 0; c < skus.length(); c++) {
+            for (int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
-                if(Character.toString(product).equals("R")){
+                if (Character.toString(product).equals("R")) {
                     qtdRItems++;
-                }else if(Character.toString(product).equals("Q")){
+                } else if (Character.toString(product).equals("Q")) {
                     qtdQItems++;
                 }
             }
-            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
+            if (qtdQItems >= qtdRItems / 3) qtdQItems = qtdQItems - qtdRItems / 3;
+        }else if(customerProducts.contains("U")){
+            int qtdUItems = 0;
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("U")){
+                    qtdUItems++;
+                }
+            }
+            if(qtdUItems >= 4) qtdUItems -= qtdUItems/4;
         }
         //calculate the total price with no discount
         for(int i = 0; i < products.length; i++){
@@ -111,6 +120,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
