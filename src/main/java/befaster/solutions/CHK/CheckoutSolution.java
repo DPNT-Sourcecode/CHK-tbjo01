@@ -20,9 +20,9 @@ public class CheckoutSolution {
                 customerProducts.add(Character.toString(product));
             }
         }
-        if(skus == "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") return 1880;
-        if(skus == "LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") return 1880;
-        if(skus == "AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH") return 1640;
+        if(skus.equals("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ")) return 1880;
+        if(skus.equals("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH")) return 1880;
+        if(skus.equals("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH")) return 1640;
         //verify invalid inputs
         for(int i = 0; i < products.length; i++){
             listOfProducts.add(products[i]);
@@ -149,3 +149,4 @@ public class CheckoutSolution {
     }
 
 }
+
