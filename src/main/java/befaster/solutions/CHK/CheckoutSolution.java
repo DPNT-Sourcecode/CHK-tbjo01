@@ -28,7 +28,7 @@ public class CheckoutSolution {
             else if (product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
             else if (product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
             else {
-                for (int i = 0; i < skus.length() - 1; i++) {
+                for (int i = 0; i < skus.length(); i++) {
                     char currentProduct = skus.charAt(i);
                     if (Character.toString(currentProduct).equals(product)) {
                         qtdItems += 1;
@@ -48,7 +48,7 @@ public class CheckoutSolution {
         }
 
         //calculate the discount to products with "buy x and pay for y" rule
-        for(int i = 0; i < products.length - 1; i++){
+        for(int i = 0; i < products.length; i++){
             if(products[i].equals("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
             }else if(products[i].equals("B")){
@@ -74,7 +74,7 @@ public class CheckoutSolution {
     public Integer realQtdBItems(List<String> customerProducts, String skus) {
         int qtdBItems = 0, qtdEItems = 0;
         if (customerProducts.contains("B") && customerProducts.contains("E")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("B")) {
                     qtdBItems++;
@@ -90,7 +90,7 @@ public class CheckoutSolution {
     public Integer realQtdFItems(List<String> customerProducts, String skus) {
         int qtdFItems = 0;
         if (customerProducts.contains("F")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("F")) {
                     qtdFItems++;
@@ -103,7 +103,7 @@ public class CheckoutSolution {
     public Integer realQtdMItems(List<String> customerProducts, String skus) {
         int qtdNItems = 0, qtdMItems = 0;
         if(customerProducts.contains("N") && customerProducts.contains("M")){
-            for(int c = 0; c < skus.length() - 1; c++) {
+            for(int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
                 if(Character.toString(product).equals("N")){
                     qtdNItems++;
@@ -118,7 +118,7 @@ public class CheckoutSolution {
     public Integer realQtdQItems(List<String> customerProducts, String skus) {
         int qtdRItems = 0, qtdQItems = 0;
         if(customerProducts.contains("R") && customerProducts.contains("Q")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("R")) {
                     qtdRItems++;
@@ -133,7 +133,7 @@ public class CheckoutSolution {
     public Integer realQtdUItems(List<String> customerProducts, String skus) {
         int qtdUItems = 0;
         if(customerProducts.contains("U")){
-            for(int c = 0; c < skus.length() - 1; c++) {
+            for(int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
                 if(Character.toString(product).equals("U")){
                     qtdUItems++;
@@ -145,6 +145,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
