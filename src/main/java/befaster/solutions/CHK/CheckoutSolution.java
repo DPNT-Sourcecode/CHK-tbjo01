@@ -10,7 +10,7 @@ public class CheckoutSolution {
         Integer total = 0, discount = 0;
         List<String> customerProducts = new ArrayList<String>();
         List<Integer> items = new ArrayList<Integer>();
-        Integer[] prices = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
+        Integer[] prices = {50,30,20,15,40,10,20,10,35,60,70,90,15,40,10,50,30,50,20,20,40,50,20,17,20,21};
         String[] products = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
         List<String> listOfProducts =  new ArrayList<String>();
         if(skus.isEmpty()) return 0;
@@ -20,9 +20,7 @@ public class CheckoutSolution {
                 customerProducts.add(Character.toString(product));
             }
         }
-        if(skus.equals("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ")) return 1880;
-        if(skus.equals("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH")) return 1880;
-        if(skus.equals("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH")) return 1640;
+
         //verify invalid inputs
         for(int i = 0; i < products.length; i++){
             listOfProducts.add(products[i]);
@@ -64,7 +62,7 @@ public class CheckoutSolution {
             }else if(products[i].equals("B") && customerProducts.contains("B")){
                 discount += items.get(i)/2*15;
             }else if(products[i].equals("K") && customerProducts.contains("K")){
-                discount += items.get(i)/2*10;
+                discount += items.get(i)/2*20;
             }else if(products[i].equals("P") && customerProducts.contains("P")){
                 discount += items.get(i)/5*50;
             }else if(products[i].equals("Q") && customerProducts.contains("Q")){
@@ -74,7 +72,16 @@ public class CheckoutSolution {
             }else if(products[i].equals("V") && customerProducts.contains("V")){
                 discount += items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
             }
-
+        }
+        for(int i = 0; i < products.length; i++){
+            if((products[i].equals("S") && customerProducts.contains("S")) || ((products[i].equals("T") && customerProducts.contains("T")))
+                    || ((products[i].equals("Y") && customerProducts.contains("Y")))) {
+                discount += items.get(i)/3*15;
+            }else if(products[i].equals("X") && customerProducts.contains("X")){
+                discount += items.get(i)/3*6;
+            }else if(products[i].equals("Z") && customerProducts.contains("Z")){
+                discount += items.get(i)/3*18;
+            }
         }
 
         total -= discount;
@@ -149,4 +156,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
