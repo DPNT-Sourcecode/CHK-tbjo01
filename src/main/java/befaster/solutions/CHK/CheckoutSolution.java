@@ -17,6 +17,8 @@ public class CheckoutSolution {
                 dItems+=1;
             }else if(product == 'E'){
                 eItems+=1;
+            }else if(product == 'F'){
+                fItems+=1;
             }else{
                 return -1;
             }
@@ -29,6 +31,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
