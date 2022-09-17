@@ -42,6 +42,8 @@ public class CheckoutSolution {
             total += item*price;
             index++;
         }
+
+        //specific free rules
         if(customerProducts.contains("B") && customerProducts.contains("E")){
             int qtdBItems = 0, qtdEItems = 0;
             for(int c = 0; c < skus.length(); c++) {
@@ -62,6 +64,28 @@ public class CheckoutSolution {
                 }
             }
             if(qtdFItems >= 3) qtdFItems -= qtdFItems/3;
+        }else if(customerProducts.contains("N") && customerProducts.contains("M")){
+            int qtdNItems = 0, qtdMItems = 0;
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("N")){
+                    qtdNItems++;
+                }else if(Character.toString(product).equals("M")){
+                    qtdMItems++;
+                }
+            }
+            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
+        }else if(customerProducts.contains("R") && customerProducts.contains("Q")){
+            int qtdRItems = 0, qtdQItems = 0;
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("R")){
+                    qtdRItems++;
+                }else if(Character.toString(product).equals("Q")){
+                    qtdQItems++;
+                }
+            }
+            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
         }
         //calculate the total price with no discount
         for(int i = 0; i < products.length; i++){
@@ -87,6 +111,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
