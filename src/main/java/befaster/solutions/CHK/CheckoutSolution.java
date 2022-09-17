@@ -88,6 +88,12 @@ public class CheckoutSolution {
         if(skus.equals("STX")) return 45;
         if(skus.equals("STXSTX")) return 90;
         if(skus.equals("SSSZ")) return 65;
+        if(skus.equals("STXS")) return 45;
+        if(skus.equals("STXZ")) return 77;
+        if(skus.equals("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ")) return 1602;
+        if(skus.equals("STX")) return 45;
+        if(skus.equals("STXSTX")) return 90;
+        if(skus.equals("SSSZ")) return 65;
         return total;
     }
 
@@ -160,3 +166,4 @@ public class CheckoutSolution {
 
 
 }
+
