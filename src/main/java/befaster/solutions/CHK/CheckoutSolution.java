@@ -18,31 +18,6 @@ public class CheckoutSolution {
                 customerProducts.add(Character.toString(product));
             }
         }
-        for(String product : customerProducts){
-            Integer qtdItems = 0;
-            for(int i = 0; i < skus.length(); i++){
-                char currentProduct = skus.charAt(i);
-                if(Character.toString(currentProduct).equals(product)){
-                    qtdItems+=1;
-                }
-            }
-            items.add(qtdItems);
-        }
-        //discount rules
-        //if(bItems >= eItems/2) bItems = bItems-eItems/2;
-        //if(fItems >= 3) fItems -= fItems/3;
-        //total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15 + fItems*10;
-
-
-
-        //calculate the total price with no discount
-        int index = 0;
-        for(Integer item : items){
-            Integer price = prices[index];
-            total += item*price;
-            index++;
-        }
-
         //specific free rules - this is to specify the new quantity of items that the customer is buying
         if(customerProducts.contains("B") && customerProducts.contains("E")){
             int qtdBItems = 0, qtdEItems = 0;
@@ -96,6 +71,32 @@ public class CheckoutSolution {
             }
             if(qtdUItems >= 4) qtdUItems -= qtdUItems/4;
         }
+        for(String product : customerProducts){
+            Integer qtdItems = 0;
+            for(int i = 0; i < skus.length(); i++){
+                char currentProduct = skus.charAt(i);
+                if(Character.toString(currentProduct).equals(product)){
+                    qtdItems+=1;
+                }
+            }
+            items.add(qtdItems);
+        }
+        //discount rules
+        //if(bItems >= eItems/2) bItems = bItems-eItems/2;
+        //if(fItems >= 3) fItems -= fItems/3;
+        //total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15 + fItems*10;
+
+
+
+        //calculate the total price with no discount
+        int index = 0;
+        for(Integer item : items){
+            Integer price = prices[index];
+            total += item*price;
+            index++;
+        }
+
+
         //calculate the total price with no discount
         for(int i = 0; i < products.length; i++){
             if(products[i].equals("A")){
@@ -120,6 +121,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
