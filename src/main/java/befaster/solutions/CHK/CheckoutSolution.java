@@ -12,12 +12,18 @@ public class CheckoutSolution {
         List<Integer> items = new ArrayList<Integer>();
         Integer[] prices = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
         String[] products = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        List<String> listOfProducts =  new ArrayList<String>();
         if(skus.isEmpty()) return 0;
         for(int i = 0; i < skus.length(); i++){
             char product = skus.charAt(i);
             if(!customerProducts.contains(Character.toString(product))){
                 customerProducts.add(Character.toString(product));
             }
+        }
+
+        //verify invalid inputs
+        for(String cstProduct : customerProducts){
+            if(!listOfProducts.contains(cstProduct)) return -1;
         }
         //specific free rules - this is to specify the new quantity of items that the customer is buying
         for(String product : products) {
@@ -139,5 +145,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
