@@ -42,23 +42,51 @@ public class CheckoutSolution {
             total += item*price;
             index++;
         }
-
+        if(customerProducts.contains("B") && customerProducts.contains("E")){
+            int qtdBItems = 0, qtdEItems = 0;
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("B")){
+                    qtdBItems++;
+                }else if(Character.toString(product).equals("E")){
+                    qtdEItems++;
+                }
+            }
+            if(qtdBItems >= qtdEItems/2) qtdBItems = qtdBItems-qtdEItems/2;
+        }else if(customerProducts.contains("F")){
+            int qtdFItems = 0;
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("F")){
+                    qtdFItems++;
+                }
+            }
+            if(qtdFItems >= 3) qtdFItems -= qtdFItems/3;
+        }
         //calculate the total price with no discount
         for(int i = 0; i < products.length; i++){
             if(products[i].equals("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
             }else if(products[i].equals("B")){
                 discount = items.get(i)/2*15;
+            }else if(products[i].equals("K")){
+                discount = items.get(i)/2*10;
+            }else if(products[i].equals("P")){
+                discount = items.get(i)/5*50;
+            }else if(products[i].equals("Q")){
+                discount = items.get(i)/3*10;
             }else if(products[i].equals("H")){
                 discount = items.get(i)/10*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*5;
             }else if(products[i].equals("V")){
                 discount = items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
             }
+
         }
 
         total -= discount;
         return total;
     }
 }
+
 
 
