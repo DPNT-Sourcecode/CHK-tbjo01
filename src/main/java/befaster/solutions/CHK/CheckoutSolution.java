@@ -21,8 +21,11 @@ public class CheckoutSolution {
                 return -1;
             }
         }
-        total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40;
+        bItems = bItems-eItems/2;
+        total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15;
+
         return total;
     }
 }
+
 
