@@ -19,19 +19,22 @@ public class CheckoutSolution {
             }
         }
         //specific free rules - this is to specify the new quantity of items that the customer is buying
-        for(String product : customerProducts){
+        for(String product : customerProducts) {
             Integer qtdItems = 0;
-            for(int i = 0; i < skus.length(); i++) {
-                char currentProduct = skus.charAt(i);
-                if (Character.toString(currentProduct).equals(product)) {
-                    qtdItems += 1;
+            if (product.equals("B")) qtdItems = realQtdBItems(customerProducts, skus);
+            else if (product.equals("F")) qtdItems = realQtdFItems(customerProducts, skus);
+            else if (product.equals("M")) qtdItems = realQtdMItems(customerProducts, skus);
+            else if (product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
+            else if (product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
+            else {
+                for (int i = 0; i < skus.length(); i++) {
+                    char currentProduct = skus.charAt(i);
+                    if (Character.toString(currentProduct).equals(product)) {
+                        qtdItems += 1;
+                    }
                 }
             }
-            if(product.equals("B")) qtdItems = realQtdBItems(customerProducts, skus);
-            if(product.equals("F")) qtdItems = realQtdFItems(customerProducts, skus);
-            if(product.equals("M")) qtdItems = realQtdMItems(customerProducts, skus);
-            if(product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
-            if(product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
+
             items.add(qtdItems);
         }
 
@@ -43,7 +46,7 @@ public class CheckoutSolution {
             index++;
         }
 
-        //calculate the total price with no discount
+        //calculate the discount to products with "buy x and pay for y" rule
         for(int i = 0; i < products.length; i++){
             if(products[i].equals("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
@@ -141,5 +144,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
