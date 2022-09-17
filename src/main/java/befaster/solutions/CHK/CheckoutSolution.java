@@ -8,13 +8,19 @@ import java.util.List;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         Integer total = 0, aItems = 0, bItems = 0, cItems = 0, dItems = 0, eItems = 0, fItems = 0, discount = 0;
-        List<String> products = new ArrayList<>();
+        List<String> products = new ArrayList<String>();
         Integer[] items = new Integer[20];
         for(int i = 0; i < skus.length(); i++){
             char product = skus.charAt(i);
-            if(!products.contais(product)){
-
-
+            if(!products.contains(Character.toString(product))){
+                products.add(Character.toString(product));
+            }
+        }
+        for(String product : products){
+            qtdItems = 0;
+            for(int i = 0; i < skus.length(); i++){
+                char prdct = skus.charAt(i);
+                
             }
         }
         //discount rules
@@ -26,4 +32,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
