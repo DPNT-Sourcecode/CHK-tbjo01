@@ -12,7 +12,7 @@ public class CheckoutSolution {
         List<Integer> items = new ArrayList<Integer>();
         Integer[] prices = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
         String[] products = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
-        for(int i = 0; i < skus.length() - 1; i++){
+        for(int i = 0; i < skus.length() - 2; i++){
             char product = skus.charAt(i);
             if(!customerProducts.contains(Character.toString(product))){
                 customerProducts.add(Character.toString(product));
@@ -27,7 +27,7 @@ public class CheckoutSolution {
             else if (product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
             else if (product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
             else {
-                for (int i = 0; i < skus.length() - 1; i++) {
+                for (int i = 0; i < skus.length() - 2; i++) {
                     char currentProduct = skus.charAt(i);
                     if (Character.toString(currentProduct).equals(product)) {
                         qtdItems += 1;
@@ -73,7 +73,7 @@ public class CheckoutSolution {
     public Integer realQtdBItems(List<String> customerProducts, String skus) {
         int qtdBItems = 0, qtdEItems = 0;
         if (customerProducts.contains("B") && customerProducts.contains("E")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length() - 2; c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("B")) {
                     qtdBItems++;
@@ -89,7 +89,7 @@ public class CheckoutSolution {
     public Integer realQtdFItems(List<String> customerProducts, String skus) {
         int qtdFItems = 0;
         if (customerProducts.contains("F")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length() - 2; c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("F")) {
                     qtdFItems++;
@@ -102,7 +102,7 @@ public class CheckoutSolution {
     public Integer realQtdMItems(List<String> customerProducts, String skus) {
         int qtdNItems = 0, qtdMItems = 0;
         if(customerProducts.contains("N") && customerProducts.contains("M")){
-            for(int c = 0; c < skus.length() - 1; c++) {
+            for(int c = 0; c < skus.length() - 2; c++) {
                 char product = skus.charAt(c);
                 if(Character.toString(product).equals("N")){
                     qtdNItems++;
@@ -117,7 +117,7 @@ public class CheckoutSolution {
     public Integer realQtdQItems(List<String> customerProducts, String skus) {
         int qtdRItems = 0, qtdQItems = 0;
         if(customerProducts.contains("R") && customerProducts.contains("Q")) {
-            for (int c = 0; c < skus.length() - 1; c++) {
+            for (int c = 0; c < skus.length() - 2; c++) {
                 char product = skus.charAt(c);
                 if (Character.toString(product).equals("R")) {
                     qtdRItems++;
@@ -132,7 +132,7 @@ public class CheckoutSolution {
     public Integer realQtdUItems(List<String> customerProducts, String skus) {
         int qtdUItems = 0;
         if(customerProducts.contains("U")){
-            for(int c = 0; c < skus.length() - 1; c++) {
+            for(int c = 0; c < skus.length() - 2; c++) {
                 char product = skus.charAt(c);
                 if(Character.toString(product).equals("U")){
                     qtdUItems++;
@@ -144,6 +144,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
