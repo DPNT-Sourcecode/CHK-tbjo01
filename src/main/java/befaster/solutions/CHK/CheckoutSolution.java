@@ -44,17 +44,20 @@ public class CheckoutSolution {
         }
 
         //calculate the total price with no discount
-        index = 0;
-        for(String product : products){
-            if(product.equals("A")){
-                discount = items.get(index)/5*50 + ((aItems-((aItems/5)*5))/3)*20;
-            }else if(product.equals("A")){
-                discount = aItems/10*20 + ((aItems-((aItems/10)*10))/5)*5;
+        for(int i = 0; i < products.length; i++){
+            if(products[i].equals("A")){
+                discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
+            }else if(products[i].equals("B")){
+                discount = items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
+            }else if(products[i].equals("H")){
+                discount = items.get(i)/10*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*5;
+            }else if(products[i].equals("V")){
+                discount = items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
             }
-            index++;
         }
 
         total -= discount;
         return total;
     }
 }
+
