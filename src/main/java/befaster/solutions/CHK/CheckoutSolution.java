@@ -149,7 +149,3 @@ public class CheckoutSolution {
     }
 
 }
-
-
-
-
