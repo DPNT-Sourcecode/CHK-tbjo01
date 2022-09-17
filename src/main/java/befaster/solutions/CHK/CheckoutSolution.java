@@ -22,10 +22,10 @@ public class CheckoutSolution {
         //specific free rules - this is to specify the new quantity of items that the customer is buying
         for(String product : products) {
             Integer qtdItems = 0;
-            if (product.equals("B")) qtdItems = realQtdBItems(customerProducts, skus);
+            if (product.equals("B") && product.equals("E")) qtdItems = realQtdBItems(customerProducts, skus);
             else if (product.equals("F")) qtdItems = realQtdFItems(customerProducts, skus);
-            else if (product.equals("M")) qtdItems = realQtdMItems(customerProducts, skus);
-            else if (product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
+            else if (customerProducts.contains("N") && customerProducts.contains("M")) qtdItems = realQtdMItems(customerProducts, skus);
+            else if (customerProducts.contains("R") && customerProducts.contains("Q")) qtdItems = realQtdQItems(customerProducts, skus);
             else if (product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
             else {
                 for (int i = 0; i < skus.length(); i++) {
@@ -73,14 +73,12 @@ public class CheckoutSolution {
 
     public Integer realQtdBItems(List<String> customerProducts, String skus) {
         int qtdBItems = 0, qtdEItems = 0;
-        if (customerProducts.contains("B") && customerProducts.contains("E")) {
-            for (int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if (Character.toString(product).equals("B")) {
-                    qtdBItems++;
-                } else if (Character.toString(product).equals("E")) {
-                    qtdEItems++;
-                }
+        for (int c = 0; c < skus.length(); c++) {
+            char product = skus.charAt(c);
+            if (Character.toString(product).equals("B")) {
+                qtdBItems++;
+            } else if (Character.toString(product).equals("E")) {
+                qtdEItems++;
             }
             if (qtdBItems >= qtdEItems / 2) qtdBItems = qtdBItems - qtdEItems / 2;
         }
@@ -102,32 +100,28 @@ public class CheckoutSolution {
     }
     public Integer realQtdMItems(List<String> customerProducts, String skus) {
         int qtdNItems = 0, qtdMItems = 0;
-        if(customerProducts.contains("N") && customerProducts.contains("M")){
-            for(int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if(Character.toString(product).equals("N")){
-                    qtdNItems++;
-                }else if(Character.toString(product).equals("M")){
-                    qtdMItems++;
-                }
+        for(int c = 0; c < skus.length(); c++) {
+            char product = skus.charAt(c);
+            if(Character.toString(product).equals("N")){
+                qtdNItems++;
+            }else if(Character.toString(product).equals("M")){
+                qtdMItems++;
             }
-            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
         }
+        if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
         return qtdMItems;
     }
     public Integer realQtdQItems(List<String> customerProducts, String skus) {
         int qtdRItems = 0, qtdQItems = 0;
-        if(customerProducts.contains("R") && customerProducts.contains("Q")) {
-            for (int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if (Character.toString(product).equals("R")) {
-                    qtdRItems++;
-                } else if (Character.toString(product).equals("Q")) {
-                    qtdQItems++;
-                }
+        for (int c = 0; c < skus.length(); c++) {
+            char product = skus.charAt(c);
+            if (Character.toString(product).equals("R")) {
+                qtdRItems++;
+            } else if (Character.toString(product).equals("Q")) {
+                qtdQItems++;
             }
-            if (qtdQItems >= qtdRItems / 3) qtdQItems = qtdQItems - qtdRItems / 3;
         }
+        if (qtdQItems >= qtdRItems / 3) qtdQItems = qtdQItems - qtdRItems / 3;
         return qtdQItems;
     }
     public Integer realQtdUItems(List<String> customerProducts, String skus) {
@@ -145,3 +139,4 @@ public class CheckoutSolution {
     }
 
 }
+
