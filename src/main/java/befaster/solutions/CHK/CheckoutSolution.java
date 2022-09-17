@@ -68,7 +68,7 @@ public class CheckoutSolution {
             }else if(products[i].equals("Q") && customerProducts.contains("Q")){
                 discount += items.get(i)/3*10;
             }else if(products[i].equals("H") && customerProducts.contains("H")){
-                discount += (items.get(i)/10)*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*5;
+                discount += (items.get(i)/10)*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*10;
             }else if(products[i].equals("V") && customerProducts.contains("V")){
                 discount += items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
             }
@@ -147,4 +147,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
