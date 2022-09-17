@@ -31,7 +31,7 @@ public class CheckoutSolution {
         //specific free rules - this is to specify the new quantity of items that the customer is buying
         for(String product : products) {
             Integer qtdItems = 0;
-            if (product.contains("B") && product.contains("E")) qtdItems = realQtdBItems(customerProducts, skus);
+            if (customerProducts.contains("B") && customerProducts.contains("E")) qtdItems = realQtdBItems(customerProducts, skus);
             else if (product.equals("F")) qtdItems = realQtdFItems(customerProducts, skus);
             else if (customerProducts.contains("N") && customerProducts.contains("M")) qtdItems = realQtdMItems(customerProducts, skus);
             else if (customerProducts.contains("R") && customerProducts.contains("Q")) qtdItems = realQtdQItems(customerProducts, skus);
@@ -148,5 +148,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
