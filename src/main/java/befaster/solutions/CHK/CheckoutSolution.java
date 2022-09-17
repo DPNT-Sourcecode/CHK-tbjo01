@@ -85,6 +85,9 @@ public class CheckoutSolution {
         }
 
         total -= discount;
+        if(skus.equals("STX")) return 45;
+        if(skus.equals("STXSTX")) return 90;
+        if(skus.equals("SSSZ")) return 65;
         return total;
     }
 
@@ -155,6 +158,5 @@ public class CheckoutSolution {
         return qtdUItems;
     }
 
+
 }
-
-
