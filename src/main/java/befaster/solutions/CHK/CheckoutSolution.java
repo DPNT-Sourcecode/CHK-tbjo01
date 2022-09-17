@@ -22,11 +22,13 @@ public class CheckoutSolution {
             }
         }
         if(bItems >= eItems/2) bItems = bItems-eItems/2;
+        if(fItems >= 3) fItems -= fItems/3;
         total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15 + fItems*10;
         discount = aItems/5*50 + ((aItems-((aItems/5)*5))/3)*20;
         total -= discount;
         return total;
     }
 }
+
 
 
