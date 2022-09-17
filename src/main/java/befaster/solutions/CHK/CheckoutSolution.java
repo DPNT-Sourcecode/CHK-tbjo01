@@ -21,13 +21,17 @@ public class CheckoutSolution {
         //specific free rules - this is to specify the new quantity of items that the customer is buying
         for(String product : customerProducts){
             Integer qtdItems = 0;
-            for(int i = 0; i < skus.length(); i++){
+            for(int i = 0; i < skus.length(); i++) {
                 char currentProduct = skus.charAt(i);
-                if(Character.toString(currentProduct).equals(product)){
-                    qtdItems+=1;
+                if (Character.toString(currentProduct).equals(product)) {
+                    qtdItems += 1;
                 }
             }
-            if(customerProducts.contains("B") && customerProducts.contains("E"))
+            if(product.equals("B")) qtdItems = realQtdBItems(customerProducts, skus);
+            if(product.equals("F")) qtdItems = realQtdFItems(customerProducts, skus);
+            if(product.equals("M")) qtdItems = realQtdMItems(customerProducts, skus);
+            if(product.equals("Q")) qtdItems = realQtdQItems(customerProducts, skus);
+            if(product.equals("U")) qtdItems = realQtdUItems(customerProducts, skus);
             items.add(qtdItems);
         }
 
@@ -137,4 +141,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
