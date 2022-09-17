@@ -19,29 +19,6 @@ public class CheckoutSolution {
             }
         }
         //specific free rules - this is to specify the new quantity of items that the customer is buying
-
-
-        if(customerProducts.contains("R") && customerProducts.contains("Q")) {
-            int qtdRItems = 0, qtdQItems = 0;
-            for (int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if (Character.toString(product).equals("R")) {
-                    qtdRItems++;
-                } else if (Character.toString(product).equals("Q")) {
-                    qtdQItems++;
-                }
-            }
-            if (qtdQItems >= qtdRItems / 3) qtdQItems = qtdQItems - qtdRItems / 3;
-        }else if(customerProducts.contains("U")){
-            int qtdUItems = 0;
-            for(int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if(Character.toString(product).equals("U")){
-                    qtdUItems++;
-                }
-            }
-            if(qtdUItems >= 4) qtdUItems -= qtdUItems/4;
-        }
         for(String product : customerProducts){
             Integer qtdItems = 0;
             for(int i = 0; i < skus.length(); i++){
@@ -115,7 +92,7 @@ public class CheckoutSolution {
         }
         return qtdFItems;
     }
-    public Integer realQtdFItems(List<String> customerProducts, String skus) {
+    public Integer realQtdMItems(List<String> customerProducts, String skus) {
         int qtdNItems = 0, qtdMItems = 0;
         if(customerProducts.contains("N") && customerProducts.contains("M")){
             for(int c = 0; c < skus.length(); c++) {
@@ -127,9 +104,37 @@ public class CheckoutSolution {
                 }
             }
             if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
-
         }
-        return qtdFItems;
+        return qtdMItems;
+    }
+    public Integer realQtdQItems(List<String> customerProducts, String skus) {
+        int qtdRItems = 0, qtdQItems = 0;
+        if(customerProducts.contains("R") && customerProducts.contains("Q")) {
+            for (int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if (Character.toString(product).equals("R")) {
+                    qtdRItems++;
+                } else if (Character.toString(product).equals("Q")) {
+                    qtdQItems++;
+                }
+            }
+            if (qtdQItems >= qtdRItems / 3) qtdQItems = qtdQItems - qtdRItems / 3;
+        }
+        return qtdQItems;
+    }
+    public Integer realQtdUItems(List<String> customerProducts, String skus) {
+        int qtdUItems = 0;
+        if(customerProducts.contains("U")){
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("U")){
+                    qtdUItems++;
+                }
+            }
+            if(qtdUItems >= 4) qtdUItems -= qtdUItems/4;
+        }
+        return qtdUItems;
     }
 
 }
+
