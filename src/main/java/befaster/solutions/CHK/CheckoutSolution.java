@@ -23,11 +23,12 @@ public class CheckoutSolution {
         }
         bItems = bItems-eItems/2;
         total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15;
-        discount = eItems/5*50 + ((eItems-(eItems/5))/3)*20;
+        discount = aItems/5*50 + ((aItems-(aItems/5))/3)*20;
         total -= discount;
         return total;
     }
 }
+
 
 
 
