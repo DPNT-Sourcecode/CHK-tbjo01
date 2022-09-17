@@ -10,7 +10,7 @@ public class CheckoutSolution {
         Integer total = 0, discount = 0;
         List<String> products = new ArrayList<String>();
         List<Integer> items = new ArrayList<Integer>();
-        List<Integer> productPrices = new ArrayList<Integer>();
+        Integer[] prices = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
         for(int i = 0; i < skus.length(); i++){
             char product = skus.charAt(i);
             if(!products.contains(Character.toString(product))){
@@ -32,11 +32,18 @@ public class CheckoutSolution {
         //if(fItems >= 3) fItems -= fItems/3;
         //total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15 + fItems*10;
         //discount = aItems/5*50 + ((aItems-((aItems/5)*5))/3)*20;
+        int index = 0;
+        for(Integer item : items){
+            Integer price = prices[index];
+            total += item*price;
+            index++;
+        }
 
         total -= discount;
         return total;
     }
 }
+
 
 
 
