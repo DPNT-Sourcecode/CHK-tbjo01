@@ -20,27 +20,8 @@ public class CheckoutSolution {
         }
         //specific free rules - this is to specify the new quantity of items that the customer is buying
 
-        if(customerProducts.contains("F")){
-            int qtdFItems = 0;
-            for(int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if(Character.toString(product).equals("F")){
-                    qtdFItems++;
-                }
-            }
-            if(qtdFItems >= 3) qtdFItems -= qtdFItems/3;
-        }else if(customerProducts.contains("N") && customerProducts.contains("M")){
-            int qtdNItems = 0, qtdMItems = 0;
-            for(int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if(Character.toString(product).equals("N")){
-                    qtdNItems++;
-                }else if(Character.toString(product).equals("M")){
-                    qtdMItems++;
-                }
-            }
-            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
-        }else if(customerProducts.contains("R") && customerProducts.contains("Q")) {
+
+        if(customerProducts.contains("R") && customerProducts.contains("Q")) {
             int qtdRItems = 0, qtdQItems = 0;
             for (int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
@@ -121,11 +102,34 @@ public class CheckoutSolution {
         return qtdBItems;
     }
 
+    public Integer realQtdFItems(List<String> customerProducts, String skus) {
+        int qtdFItems = 0;
+        if (customerProducts.contains("F")) {
+            for (int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if (Character.toString(product).equals("F")) {
+                    qtdFItems++;
+                }
+            }
+            if (qtdFItems >= 3) qtdFItems -= qtdFItems / 3;
+        }
+        return qtdFItems;
+    }
+    public Integer realQtdFItems(List<String> customerProducts, String skus) {
+        int qtdNItems = 0, qtdMItems = 0;
+        if(customerProducts.contains("N") && customerProducts.contains("M")){
+            for(int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if(Character.toString(product).equals("N")){
+                    qtdNItems++;
+                }else if(Character.toString(product).equals("M")){
+                    qtdMItems++;
+                }
+            }
+            if(qtdMItems >= qtdNItems/3) qtdMItems = qtdMItems-qtdNItems/3;
+
+        }
+        return qtdFItems;
+    }
+
 }
-
-
-
-
-
-
-
