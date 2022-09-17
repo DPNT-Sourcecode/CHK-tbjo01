@@ -19,18 +19,8 @@ public class CheckoutSolution {
             }
         }
         //specific free rules - this is to specify the new quantity of items that the customer is buying
-        if(customerProducts.contains("B") && customerProducts.contains("E")){
-            int qtdBItems = 0, qtdEItems = 0;
-            for(int c = 0; c < skus.length(); c++) {
-                char product = skus.charAt(c);
-                if(Character.toString(product).equals("B")){
-                    qtdBItems++;
-                }else if(Character.toString(product).equals("E")){
-                    qtdEItems++;
-                }
-            }
-            if(qtdBItems >= qtdEItems/2) qtdBItems = qtdBItems-qtdEItems/2;
-        }else if(customerProducts.contains("F")){
+
+        if(customerProducts.contains("F")){
             int qtdFItems = 0;
             for(int c = 0; c < skus.length(); c++) {
                 char product = skus.charAt(c);
@@ -79,14 +69,9 @@ public class CheckoutSolution {
                     qtdItems+=1;
                 }
             }
+            if(customerProducts.contains("B") && customerProducts.contains("E"))
             items.add(qtdItems);
         }
-        //discount rules
-        //if(bItems >= eItems/2) bItems = bItems-eItems/2;
-        //if(fItems >= 3) fItems -= fItems/3;
-        //total = aItems*50 + bItems*30 + cItems*20 + dItems*15 + eItems*40 - (bItems/2)*15 + fItems*10;
-
-
 
         //calculate the total price with no discount
         int index = 0;
@@ -95,7 +80,6 @@ public class CheckoutSolution {
             total += item*price;
             index++;
         }
-
 
         //calculate the total price with no discount
         for(int i = 0; i < products.length; i++){
@@ -120,7 +104,25 @@ public class CheckoutSolution {
         total -= discount;
         return total;
     }
+
+    public Integer realQtdBItems(List<String> customerProducts, String skus) {
+        int qtdBItems = 0, qtdEItems = 0;
+        if (customerProducts.contains("B") && customerProducts.contains("E")) {
+            for (int c = 0; c < skus.length(); c++) {
+                char product = skus.charAt(c);
+                if (Character.toString(product).equals("B")) {
+                    qtdBItems++;
+                } else if (Character.toString(product).equals("E")) {
+                    qtdEItems++;
+                }
+            }
+            if (qtdBItems >= qtdEItems / 2) qtdBItems = qtdBItems - qtdEItems / 2;
+        }
+        return qtdBItems;
+    }
+
 }
+
 
 
 
