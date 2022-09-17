@@ -48,7 +48,7 @@ public class CheckoutSolution {
         }
 
         //calculate the discount to products with "buy x and pay for y" rule
-        for(int i = 0; i < products.length; i++){
+        for(int i = 0; i < products.length - 2; i++){
             if(products[i].equals("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
             }else if(products[i].equals("B")){
@@ -145,6 +145,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
