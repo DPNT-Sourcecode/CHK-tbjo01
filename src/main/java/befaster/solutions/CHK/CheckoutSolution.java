@@ -58,19 +58,19 @@ public class CheckoutSolution {
 
         //calculate the discount to products with "buy x and pay for y" rule
         for(int i = 0; i < products.length; i++){
-            if(products[i].equals("A")){
+            if(products[i].equals("A") && customerProducts.contains("A")){
                 discount = items.get(i)/5*50 + ((items.get(i)-((items.get(i)/5)*5))/3)*20;
-            }else if(products[i].equals("B")){
+            }else if(products[i].equals("B") && customerProducts.contains("B")){
                 discount = items.get(i)/2*15;
-            }else if(products[i].equals("K")){
+            }else if(products[i].equals("K") && customerProducts.contains("K")){
                 discount = items.get(i)/2*10;
-            }else if(products[i].equals("P")){
+            }else if(products[i].equals("P") && customerProducts.contains("P")){
                 discount = items.get(i)/5*50;
-            }else if(products[i].equals("Q")){
+            }else if(products[i].equals("Q") && customerProducts.contains("Q")){
                 discount = items.get(i)/3*10;
-            }else if(products[i].equals("H")){
+            }else if(products[i].equals("H") && customerProducts.contains("H")){
                 discount = items.get(i)/10*20 + ((items.get(i)-((items.get(i)/10)*10))/5)*5;
-            }else if(products[i].equals("V")){
+            }else if(products[i].equals("V") && customerProducts.contains("V")){
                 discount = items.get(i)/3*20 + ((items.get(i)-((items.get(i)/3)*3))/2)*10;
             }
 
@@ -148,3 +148,4 @@ public class CheckoutSolution {
     }
 
 }
+
